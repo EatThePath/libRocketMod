@@ -117,28 +117,30 @@
 				</div>
 				<img src="ops-panel-vert-l.png"></img>
 			</div>
-			<div id=weapon_scroll_panel>
-				<div id=scroll_button_wrapper ondragdrop="controller:DragDrop(element, 0)">
-					<div id=primary_icon_list>
-						<ul id=primary_icon_list_ul>
-						</ul>
+			<div id=weapon_scrolls>
+				<div id=weapon_scroll_panel>
+					<div id=scroll_button_wrapper ondragdrop="controller:DragDrop(element, 0)">
+						<div id=primary_icon_list>
+							<ul id=primary_icon_list_ul>
+							</ul>
+						</div>
+					</div>
+					<img src="select-scroll-panelT.png"></img>
+					<div class="tooltip">
+						<span class="tooltiptext">XSTR("Choose a new weapon type by dragging its icon over one of the available weapon slots", -1)</span>
 					</div>
 				</div>
-				<img src="select-scroll-panel.png"></img>
-				<div class="tooltip">
-					<span class="tooltiptext">XSTR("Choose a new weapon type by dragging its icon over one of the available weapon slots", -1)</span>
-				</div>
-			</div>
-			<div id=weapon_scroll_panel>
-				<div id=scroll_button_wrapper ondragdrop="controller:DragDrop(element, 0)">
-					<div id=secondary_icon_list>
-						<ul id=secondary_icon_list_ul>
-						</ul>
+				<div id=weapon_scroll_panel>
+					<div id=scroll_button_wrapper ondragdrop="controller:DragDrop(element, 0)">
+						<div id=secondary_icon_list>
+							<ul id=secondary_icon_list_ul>
+							</ul>
+						</div>
 					</div>
-				</div>
-				<img src="select-scroll-panel.png"></img>
-				<div class="tooltip">
-					<span class="tooltiptext">XSTR("Choose a ship to modify the weapons loadout", -1)</span>
+					<img src="select-scroll-panelT.png"></img>
+					<div class="tooltip">
+						<span class="tooltiptext">XSTR("Choose a ship to modify the weapons loadout", -1)</span>
+					</div>
 				</div>
 			</div>
 		</div>

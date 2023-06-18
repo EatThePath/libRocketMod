@@ -166,16 +166,16 @@ div#weapon_stats
 
 div#weapon_left_column
 {
-	margin-left: 5%;
+	margin-left: 2%;
 	position: absolute;
 	bottom: 0;
-	width: 10.5%;
+	width: 20.5%;
 	height: 80%;
 }
 
 div#copy_to_wing_panel
 {
-	width: 50%;
+	width: 25%;
 	height: 7%;
 	overflow: hidden;
 	position: relative;
@@ -190,13 +190,22 @@ div#copy_to_wing_panel img
 	height: auto;
 }
 
-div#weapon_scroll_panel
-{
+div#weapon_scrolls{
 	width: 100%;
 	height: auto;
 	overflow: hidden;
 	position: relative;
 	margin-bottom: 1%;
+}
+
+div#weapon_scroll_panel
+{
+	width: 50%;
+	height: auto;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 1%;
+	float: left;
 }
 
 div#weapon_scroll_panel img
@@ -234,7 +243,8 @@ div#ship_scroll
 
 div#primary_icon_list
 {
-	width: 140%;
+	float:none;
+	width: 110%;
 	height: 80%;
 	overflow: scroll;
 	margin-top: 10%;
@@ -242,7 +252,8 @@ div#primary_icon_list
 
 div#secondary_icon_list
 {
-	width: 140%;
+	float:none;
+	width: 110%;
 	height: 80%;
 	overflow: scroll;
 	margin-top: 10%;
@@ -250,31 +261,54 @@ div#secondary_icon_list
 
 .select_item
 {
-	width: 80%;
+	width: 100%;
 }
 
 .amount
 {
-	width: 30%;
-	float: left;
-	padding-top: 8%;
-	padding-right: 5%;
-	text-align: center;
-	margin-right: 3%;
+	color: #dddddd ;
+	position: absolute;
+	margin-top: 1em;
+
+	margin-left:15px; 
+	width: 100%;
+	float: none;
+	text-align: left;
+	z-index: 9;
 }
 
+.wep_name
+{
+	color: #dddddd ;
+	position: absolute;
+	width: 100%;
+	margin-left:5px; 
+	float: none;
+	text-align: left;
+	z-index: 9;
+}
 div#primary_icon_list .icon
 {
-	width: 60%;
-	float: left;
+	width: 100%;
+	float: none;
+	margin-bottom: 10px;
 	z-index: 7;
-	margin-top: 3%;
+	
 }
+
 
 div#secondary_icon_list .icon
 {
+	width: 100%;
+	float: none;
+	margin-bottom: 10px;
+	z-index: 7;
+}
+
+div#text
+{
 	width: 60%;
-	float: left;
+	float: none;
 	z-index: 7;
 	margin-top: 3%;
 }
@@ -810,8 +844,9 @@ div#scroll_button_wrapper
 #primary_icon_list scrollbarvertical sliderarrowdec
 {
 	width: 100%;
-	height: 10%;
+	height: 5%;
 	margin-top: -11%;
+	margin-left: 47.5%;
 	mouseover-sound: 17;
 	click-sound: 0;
 	icon-decorator: image;
@@ -821,8 +856,9 @@ div#scroll_button_wrapper
 #primary_icon_list scrollbarvertical sliderarrowinc
 {
 	width: 100%;
-	height: 10%;
+	height: 5%;
 	margin-bottom: -11%;
+	margin-left: 47.5%;
 	mouseover-sound: 17;
 	click-sound: 0;
 	icon-decorator: image;
@@ -881,8 +917,9 @@ div#scroll_button_wrapper
 #secondary_icon_list scrollbarvertical sliderarrowdec
 {
 	width: 100%;
-	height: 10%;
+	height: 5%;
 	margin-top: -11%;
+	margin-left: 47.5%;
 	mouseover-sound: 17;
 	click-sound: 0;
 	icon-decorator: image;
@@ -892,8 +929,9 @@ div#scroll_button_wrapper
 #secondary_icon_list scrollbarvertical sliderarrowinc
 {
 	width: 100%;
-	height: 10%;
+	height: 5%;
 	margin-bottom: -11%;
+	margin-left: 47.5%;
 	mouseover-sound: 17;
 	click-sound: 0;
 	icon-decorator: image;

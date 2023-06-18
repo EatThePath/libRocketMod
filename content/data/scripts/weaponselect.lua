@@ -616,7 +616,7 @@ end
 function WeaponSelectController:ChangeIconAvailability(shipIndex)
 
 	for i, v in pairs(self.primaryList) do
-		local iconEl = self.document:GetElementById(v.key).first_child.first_child.next_sibling
+		local iconEl = self.document:GetElementById(v.key).first_child.last_child
 		if tb.ShipClasses[shipIndex]:isWeaponAllowedOnShip(v.Index) then
 			iconEl:SetClass("drag", true)
 			if self.icon3d then
@@ -635,7 +635,7 @@ function WeaponSelectController:ChangeIconAvailability(shipIndex)
 	end
 	
 	for i, v in pairs(self.secondaryList) do
-		local iconEl = self.document:GetElementById(v.key).first_child.first_child.next_sibling
+		local iconEl = self.document:GetElementById(v.key).first_child.last_child
 		if tb.ShipClasses[shipIndex]:isWeaponAllowedOnShip(v.Index) then
 			iconEl:SetClass("drag", true)
 			if self.icon3d then
@@ -661,20 +661,17 @@ function WeaponSelectController:CreateEntryItem(entry, idx)
 	local iconWrapper = self.document:CreateElement("div")
 	iconWrapper.id = entry.Name
 	iconWrapper:SetClass("select_item", true)
-	
-	li_el:AppendChild(iconWrapper)
-	
+
 	local countEl = self.document:CreateElement("div")
-	countEl.inner_rml = entry.Amount
+	countEl.inner_rml = tostring(entry.Amount)
 	countEl:SetClass("amount", true)
 	entry.countEl = countEl
 	
-	iconWrapper:AppendChild(countEl)
+	
 	
 	--local aniWrapper = self.document:GetElementById(entry.Icon)
 	local iconEl = self.document:CreateElement("img")
 	iconEl:SetAttribute("src", entry.GeneratedIcon[1])
-	iconWrapper:AppendChild(iconEl)
 	--iconWrapper:ReplaceChild(iconEl, iconWrapper.first_child)
 	li_el.id = entry.Name
 
@@ -689,6 +686,17 @@ function WeaponSelectController:CreateEntryItem(entry, idx)
 		self:DragPoolEnd(iconEl, entry, entry.Index)
 	end)
 	entry.key = li_el.id
+
+	local nameEl = self.document:CreateElement("div")
+	nameEl:SetClass("wep_name",true)
+	nameEl.inner_rml = tostring(entry.Name)
+	--nameEl:SetClass("amount", true)
+	entry.nameEl = nameEl
+
+	li_el:AppendChild(iconWrapper)
+	iconWrapper:AppendChild(nameEl)
+	iconWrapper:AppendChild(countEl)
+	iconWrapper:AppendChild(iconEl)
 
 	return li_el
 end
@@ -757,7 +765,7 @@ function WeaponSelectController:HighlightWeapon()
 	local shipIndex = ui.ShipWepSelect.Loadout_Ships[self.currentShipSlot].ShipClassIndex 
 
 	for i, v in pairs(self.primaryList) do
-		local iconEl = self.document:GetElementById(v.key).first_child.first_child.next_sibling
+		local iconEl = self.document:GetElementById(v.key).first_child.last_child
 		if tb.ShipClasses[shipIndex]:isWeaponAllowedOnShip(v.Index) then
 			if v.key == self.SelectedEntry then
 				if self.icon3d then
@@ -774,7 +782,7 @@ function WeaponSelectController:HighlightWeapon()
 	end
 	
 	for i, v in pairs(self.secondaryList) do
-		local iconEl = self.document:GetElementById(v.key).first_child.first_child.next_sibling
+		local iconEl = self.document:GetElementById(v.key).first_child.last_child
 		if tb.ShipClasses[shipIndex]:isWeaponAllowedOnShip(v.Index) then
 			if v.key == self.SelectedEntry then
 				if self.icon3d then
