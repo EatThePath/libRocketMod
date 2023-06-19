@@ -15,7 +15,7 @@ div#logo_wide
 {
 	position: absolute;
 	top: 1%;
-	right: 15%;
+	right: 25%;
 	width: 50%;
 	height: auto;
 	overflow: hidden;
