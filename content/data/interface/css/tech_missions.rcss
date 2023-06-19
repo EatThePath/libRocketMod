@@ -15,7 +15,7 @@ div#logo_wide
 {
 	position: absolute;
 	top: 1%;
-	right: 15%;
+	right: 25%;
 	width: 50%;
 	height: auto;
 	overflow: hidden;
@@ -130,6 +130,8 @@ div#mission_list
 	color: #7b7b7b;
 	z-index: 3;
 	overflow: hidden;
+	border-color: #003333;
+	border-width: 1px;
 }
 .missionlist_element:hover
 {
@@ -171,6 +173,7 @@ div#mission_list
 	margin-left: 1%;
 	white-space: pre;
 	overflow: scroll;
+	vertical-align: bottom;
 }
 
 #mission_list .missionlist_description scrollbarhorizontal
