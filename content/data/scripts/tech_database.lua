@@ -380,7 +380,7 @@ function TechDatabaseController:DrawModel()
 			ScpuiSystem.modelDraw.clickOrient = ba.createOrientationFromVectors(fvec, uvec, rvec)
 		end
 		
-		local orient = ba.createOrientation(-49.75, 0, ScpuiSystem.modelDraw.Rot)
+		local orient = ba.createOrientation(0.16, 0, ScpuiSystem.modelDraw.Rot)
 		if ScpuiSystem.modelDraw.click then
 			orient = ScpuiSystem.modelDraw.clickOrient * orient
 		end
