@@ -19,6 +19,33 @@ function WeaponSelectController:init()
 	self.help_shown = false
 end
 
+function WeaponSelectController:WeaponTable(index,weaponType,weaponHandle)
+	local wh = weaponHandle
+	return {
+		Index = index,
+		Amount = 0,
+		Icon = wh.SelectIconFilename,
+		GeneratedIcon = {},
+		Anim = wh.SelectAnimFilename,
+		Name = wh.Name,
+		Title = wh.TechTitle,
+		Description = string.gsub(wh.Description, "Level", "<br></br>Level"),
+		Velocity = math.floor(wh.Speed*10)/10,
+		Range = math.floor(wh.Speed*wh.LifeMax*10)/10,
+		Damage = math.floor(wh.Damage*10)/10,
+		ArmorFactor = math.floor(wh.ArmorFactor*10)/10,
+		ShieldFactor = math.floor(wh.ShieldFactor*10)/10,
+		SubsystemFactor = math.floor(wh.SubsystemFactor*10)/10,
+		FireWait = math.floor(wh.FireWait*10)/10,
+		Power = wh.EnergyConsumed,
+		Type = weaponType,
+		key = wh.Name,
+		GeneratedWidth = rocketUiIcons[wh.Name].Width,
+		GeneratedHeight = rocketUiIcons[wh.Name].Height,
+		GeneratedIcon = rocketUiIcons[wh.Name].Icon
+	}
+end
+
 function WeaponSelectController:initialize(document)
     --AbstractBriefingController.initialize(self, document)
 	self.document = document
@@ -133,54 +160,17 @@ function WeaponSelectController:initialize(document)
 				ScpuiSystem:setIconFrames(weaponList[i].Name)
 			end
 			if tb.WeaponClasses[i]:isPrimary() then
-				self.primaryList[j] = {
-					Index = i,
-					Amount = ui.ShipWepSelect.Weapon_Pool[i],
-					Icon = weaponList[i].SelectIconFilename,
-					GeneratedIcon = {},
-					Anim = weaponList[i].SelectAnimFilename,
-					Name = weaponList[i].Name,
-					Title = weaponList[i].TechTitle,
-					Description = string.gsub(weaponList[i].Description, "Level", "<br></br>Level"),
-					Velocity = math.floor(weaponList[i].Speed*10)/10,
-					Range = math.floor(weaponList[i].Speed*weaponList[i].LifeMax*10)/10,
-					Damage = math.floor(weaponList[i].Damage*10)/10,
-					ArmorFactor = math.floor(weaponList[i].ArmorFactor*10)/10,
-					ShieldFactor = math.floor(weaponList[i].ShieldFactor*10)/10,
-					SubsystemFactor = math.floor(weaponList[i].SubsystemFactor*10)/10,
-					FireWait = math.floor(weaponList[i].FireWait*10)/10,
-					Power = weaponList[i].EnergyConsumed,
-					Type = "primary",
-					GeneratedWidth = rocketUiIcons[weaponList[i].Name].Width,
-					GeneratedHeight = rocketUiIcons[weaponList[i].Name].Height,
-					GeneratedIcon = rocketUiIcons[weaponList[i].Name].Icon
-				}
+				self.primaryList[j] = self:WeaponTable(i,"primary",tb.WeaponClasses[i])
+				
+				self.primaryList[j].Amount = ui.ShipWepSelect.Weapon_Pool[i]
 				j = j + 1
 			elseif tb.WeaponClasses[i]:isSecondary() then
-				self.secondaryList[k] = {
-					Index = i,
-					Amount = ui.ShipWepSelect.Weapon_Pool[i],
-					Icon = weaponList[i].SelectIconFilename,
-					GeneratedIcon = {},
-					Anim = weaponList[i].SelectAnimFilename,
-					Name = weaponList[i].Name,
-					Title = weaponList[i].TechTitle,
-					Description = string.gsub(weaponList[i].Description, "Level", "<br></br>Level"),
-					Velocity = math.floor(weaponList[i].Speed*10)/10,
-					Range = math.floor(weaponList[i].Speed*weaponList[i].LifeMax*10)/10,
-					Damage = math.floor(weaponList[i].Damage*10)/10,
-					ArmorFactor = math.floor(weaponList[i].ArmorFactor*10)/10,
-					ShieldFactor = math.floor(weaponList[i].ShieldFactor*10)/10,
-					SubsystemFactor = math.floor(weaponList[i].SubsystemFactor*10)/10,
-					FireWait = math.floor(weaponList[i].FireWait*10)/10,
-					Power = weaponList[i].EnergyConsumed,
-					Type = "secondary",
-					GeneratedWidth = rocketUiIcons[weaponList[i].Name].Width,
-					GeneratedHeight = rocketUiIcons[weaponList[i].Name].Height,
-					GeneratedIcon = rocketUiIcons[weaponList[i].Name].Icon
-				}
+				self.secondaryList[k] = self:WeaponTable(i,"primary",tb.WeaponClasses[i])
+				
+				self.secondaryList[k].Amount = ui.ShipWepSelect.Weapon_Pool[i]
 				k = k + 1
 			end
+			
 		end
 		i = i + 1
 	end
@@ -514,7 +504,6 @@ function WeaponSelectController:CheckSlots()
 	end
 
 end
-			
 
 function WeaponSelectController:AppendWeaponToPool(classIndex)
 
@@ -533,29 +522,7 @@ function WeaponSelectController:AppendWeaponToPool(classIndex)
 		type_v = "secondary"
 	end
 	i = #list + 1
-	list[i] = {
-		Index = classIndex,
-		Amount = 0,
-		Icon = tb.WeaponClasses[classIndex].SelectIconFilename,
-		GeneratedIcon = {},
-		Anim = tb.WeaponClasses[classIndex].SelectAnimFilename,
-		Name = tb.WeaponClasses[classIndex].Name,
-		Title = tb.WeaponClasses[classIndex].TechTitle,
-		Description = string.gsub(tb.WeaponClasses[classIndex].Description, "Level", "<br></br>Level"),
-		Velocity = math.floor(tb.WeaponClasses[classIndex].Speed*10)/10,
-		Range = math.floor(tb.WeaponClasses[classIndex].Speed*tb.WeaponClasses[classIndex].LifeMax*10)/10,
-		Damage = math.floor(tb.WeaponClasses[classIndex].Damage*10)/10,
-		ArmorFactor = math.floor(tb.WeaponClasses[classIndex].ArmorFactor*10)/10,
-		ShieldFactor = math.floor(tb.WeaponClasses[classIndex].ShieldFactor*10)/10,
-		SubsystemFactor = math.floor(tb.WeaponClasses[classIndex].SubsystemFactor*10)/10,
-		FireWait = math.floor(tb.WeaponClasses[classIndex].FireWait*10)/10,
-		Power = tb.WeaponClasses[classIndex].EnergyConsumed,
-		Type = type_v,
-		key = tb.WeaponClasses[classIndex].Name,
-		GeneratedWidth = rocketUiIcons[tb.WeaponClasses[classIndex].Name].Width,
-		GeneratedHeight = rocketUiIcons[tb.WeaponClasses[classIndex].Name].Height,
-		GeneratedIcon = rocketUiIcons[tb.WeaponClasses[classIndex].Name].Icon
-	}
+	list[i] = self:WeaponTable(classIndex,type_v,tb.WeaponClasses[classIndex])
 end
 
 function WeaponSelectController:ResetAmounts()
