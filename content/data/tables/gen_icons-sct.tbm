@@ -38,15 +38,15 @@ function ScpuiSystem:setIconFrames(item, is_ship)
 		if is_ship == true then
 			model_h = tb.ShipClasses[item]
 			modelDetails.width = 128
-			modelDetails.height = 112
+			modelDetails.height = 128
 			modelDetails.heading = 50
 			modelDetails.pitch = 15
 			modelDetails.bank = 0
 			modelDetails.zoom = 1.1
 		else
 			model_h = tb.WeaponClasses[item]
-			modelDetails.width = 112
-			modelDetails.height = 48
+			modelDetails.width = 512
+			modelDetails.height = 256
 			modelDetails.heading = 75
 			modelDetails.pitch = 0
 			modelDetails.bank = 40
