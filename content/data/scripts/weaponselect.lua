@@ -25,7 +25,6 @@ function WeaponSelectController:WeaponTable(index,weaponType,weaponHandle)
 		Index = index,
 		Amount = 0,
 		Icon = wh.SelectIconFilename,
-		GeneratedIcon = {},
 		Anim = wh.SelectAnimFilename,
 		Name = wh.Name,
 		Title = wh.TechTitle,
