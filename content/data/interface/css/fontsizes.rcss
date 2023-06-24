@@ -29,27 +29,27 @@
 
 .p1-6
 {
-	font-size: 1.1em;
+	font-size: 1.2em;
 }
 
 .p1-7
 {
-	font-size: 1.2em;
+	font-size: 1.4em;
 }
 
 .p1-8
 {
-	font-size: 1.3em;
+	font-size: 1.6em;
 }
 
 .p1-9
 {
-	font-size: 1.4em;
+	font-size: 1.8em;
 }
 
 .p1-10
 {
-	font-size: 1.5em;
+	font-size: 2.0em;
 }
 
 .p2-1
@@ -79,27 +79,27 @@
 
 .p2-6
 {
-	font-size: 1.2em;
+	font-size: 1.3em;
 }
 
 .p2-7
 {
-	font-size: 1.3em;
+	font-size: 1.5em;
 }
 
 .p2-8
 {
-	font-size: 1.4em;
+	font-size: 1.7em;
 }
 
 .p2-9
 {
-	font-size: 1.5em;
+	font-size: 1.9em;
 }
 
 .p2-10
 {
-	font-size: 1.6em;
+	font-size: 2.1em;
 }
 
 .s1-1
@@ -129,27 +129,27 @@
 
 .s1-6
 {
-	font-size: 0.8em;
+	font-size: 0.9em;
 }
 
 .s1-7
 {
-	font-size: 0.9em;
+	font-size: 1.1em;
 }
 
 .s1-8
 {
-	font-size: 1em;
+	font-size: 1.3em;
 }
 
 .s1-9
 {
-	font-size: 1.1em;
+	font-size: 1.5em;
 }
 
 .s1-10
 {
-	font-size: 1.5em;
+	font-size: 1.7em;
 }
 
 .h1-1
@@ -179,27 +179,27 @@
 
 .h1-6
 {
-	font-size: 1.8em;
+	font-size: 1.9em;
 }
 
 .h1-7
 {
-	font-size: 1.9em;
+	font-size: 2.1em;
 }
 
 .h1-8
 {
-	font-size: 2em;
+	font-size: 2.3em;
 }
 
 .h1-9
 {
-	font-size: 2.1em;
+	font-size: 2.5em;
 }
 
 .h1-10
 {
-	font-size: 2.2em;
+	font-size: 2.7em;
 }
 
 .h2-1
@@ -229,25 +229,25 @@
 
 .h2-6
 {
-	font-size: 2.6em;
+	font-size: 2.7em;
 }
 
 .h2-7
 {
-	font-size: 2.7em;
+	font-size: 2.9em;
 }
 
 .h2-8
 {
-	font-size: 2.8em;
+	font-size: 3.1em;
 }
 
 .h2-9
 {
-	font-size: 2.9em;
+	font-size: 3.3em;
 }
 
 .h2-10
 {
-	font-size: 3em;
+	font-size: 3.5em;
 }
