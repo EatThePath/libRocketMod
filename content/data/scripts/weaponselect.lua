@@ -20,6 +20,26 @@ function WeaponSelectController:init()
 end
 
 function WeaponSelectController:WeaponTable(index,weaponType,weaponHandle)
+
+	local damageClass = weaponHandle
+	local damageMultiplier = 1
+	if weaponHandle:hasCustomData() then
+		local custom = weaponHandle.CustomData
+		if custom.SU_ProxyWeapon ~= nil then
+			ba.println("trying to load proxy weapon handle for " ..weaponHandle.Name)
+			ba.println(" from value " .. custom.SU_ProxyWeapon)
+			if tb.WeaponClasses[custom.SU_ProxyWeapon] ~= nil then
+				damageClass = tb.WeaponClasses[custom.SU_ProxyWeapon]
+				ba.println("loaded")
+			else 
+				ba.println("failed")
+			end
+		end
+		if custom.SU_Submunitions ~= nil and tonumber(custom.SU_Submunitions) ~= nil then
+			damageMultiplier = tonumber(custom.SU_Submunitions)
+		end
+	end
+
 	local wh = weaponHandle
 	return {
 		Index = index,
@@ -31,10 +51,12 @@ function WeaponSelectController:WeaponTable(index,weaponType,weaponHandle)
 		Description = string.gsub(wh.Description, "Level", "<br></br>Level"),
 		Velocity = math.floor(wh.Speed*10)/10,
 		Range = math.floor(wh.Speed*wh.LifeMax*10)/10,
-		Damage = math.floor(wh.Damage*10)/10,
-		ArmorFactor = math.floor(wh.ArmorFactor*10)/10,
-		ShieldFactor = math.floor(wh.ShieldFactor*10)/10,
-		SubsystemFactor = math.floor(wh.SubsystemFactor*10)/10,
+
+		Damage = math.floor(damageClass.Damage*10*damageMultiplier)/10,
+		ArmorFactor = math.floor(damageClass.ArmorFactor*10)/10,
+		ShieldFactor = math.floor(damageClass.ShieldFactor*10)/10,
+		SubsystemFactor = math.floor(damageClass.SubsystemFactor*10)/10,
+
 		FireWait = math.floor(wh.FireWait*10)/10,
 		Power = wh.EnergyConsumed,
 		Type = weaponType,
